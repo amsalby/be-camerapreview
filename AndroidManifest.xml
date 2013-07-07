@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+ Copyright 2013 Alberto Panizzo <alberto@amarulasolutions.com>
+ 
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ MA 02110-1301, USA.
+
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.betterembedded.camerapreview"
+	android:versionCode="1"
+	android:versionName="1.0" >
+
+	<!-- To make Lint not to comply -->
+	<uses-sdk android:minSdkVersion="8"
+				android:targetSdkVersion="17"/>
+
+	<!-- Required to use the Camera, our app will gain "camera" group -->
+	<uses-permission android:name="android.permission.CAMERA" />
+
+	<!-- Otherwise the market will not show our app for devices that does not
+		 have a camera -->
+	<uses-feature android:name="android.hardware.camera" android:required="false" />
+
+	<application
+		android:icon="@drawable/icon"
+		android:label="@string/app_name"
+		android:allowBackup="true" >
+		<!-- Look at how we gain from resources the Titlebar and Statusbar space -->
+		<activity
+			android:label="@string/app_name"
+			android:name=".CameraPreviewActivity"
+			android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+			<intent-filter >
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+	</application>
+
+</manifest>
